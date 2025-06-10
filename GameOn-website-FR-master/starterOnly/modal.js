@@ -20,4 +20,34 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+function validate() {
+  // Récupération des champs à valider
+  const first = document.getElementById("first").value.trim();
+  const last = document.getElementById("last").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const birthdate = document.getElementById("birthdate").value;
+  const quantity = document.getElementById("quantity").value;
+  const locationChecked = document.querySelector('input[name="location"]:checked');
+  const termsAccepted = document.getElementById("checkbox1").checked;
+
+  // Vérification simple
+  if (first.length < 2 || last.length < 2 || email === "" || !birthdate || quantity === "" || !locationChecked || !termsAccepted) {
+    alert("Veuillez remplir tous les champs obligatoires.");
+    return false; // Empêche l'envoi
+  }
+
+  // Masquer le formulaire et afficher le message
+  document.getElementById("formModal").style.display = "none";
+  document.getElementById("confirmationModal").style.display = "block";
+
+  return false; // Empêche le rechargement de la page
+}
+
+// Fermer le message de confirmation
+function closeConfirmation() {
+  document.getElementById("confirmationModal").style.display = "none";
+  document.querySelector('form[name="reserve"]').reset(); // Réinitialise le formulaire
+}
+
+
 
