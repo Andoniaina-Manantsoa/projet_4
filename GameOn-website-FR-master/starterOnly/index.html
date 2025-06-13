@@ -17,8 +17,7 @@
     </div>
     <div class="main-navbar">
 
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
+      <a href="#" class="active"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
@@ -29,7 +28,7 @@
   </div>
   </div>
   <main>
-    <div class="hero-section">
+    <div class="hero-section" id="myHero-section">
       <div class="hero-content">
         <h1 class="hero-headline">
           Marathon national<br>
@@ -46,14 +45,11 @@
       <div class="hero-img">
         <img src="./bg_img.jpg" alt="img" />
       </div>
-      <button class="btn-signup modal-btn">
-        je m'inscris
-      </button>
     </div>
 
     <div class="bground" id="formModal">
       <div class="content">
-        <span class="close"></span>
+        <span class="close" onclick="closeForm()"></span>
         <div class="modal-body">
           <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
             <div class="formData">
@@ -126,13 +122,14 @@
 
     <div class="bground" id="confirmationModal">
       <div class="content">
-        <span class="close"></span>
+        <span class="close" onclick="closeForm()"></span>
         <p>Merci pour votre inscription</p>
         <input class="btn-submit" type="submit" class="button" value="Fermer" onclick="closeConfirmation()" />
       </div>
     </div>
   </main>
-  <footer>
+
+  <footer id="myFooter">
     <p class="copyrights">
       Copyright 2014 - 2022, GameOn Inc.
     </p>

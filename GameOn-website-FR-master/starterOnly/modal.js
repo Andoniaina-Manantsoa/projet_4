@@ -18,6 +18,12 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+
+  //Masquer la page d'acceuil et afficher le formulaire
+  document.getElementById("myTopnav").style.display = "none";
+  document.getElementById("myHero-section").style.display = "none";
+  document.getElementById("myFooter").style.display = "none";
+  document.getElementById("formModal").style.display = "block";
 }
 
 function validate() {
@@ -47,6 +53,21 @@ function validate() {
 function closeConfirmation() {
   document.getElementById("confirmationModal").style.display = "none";
   document.querySelector('form[name="reserve"]').reset(); // Réinitialise le formulaire
+
+  // Réafficher le page d'acceuil
+  document.getElementById("myTopnav").style.display = "block";
+  document.getElementById("myHero-section").style.display = "grid";
+  document.getElementById("myFooter").style.display = "block";
+}
+
+//Fermer les modal avec close
+function closeForm() {
+  document.getElementById("formModal").style.display = "none";
+  document.getElementById("confirmationModal").style.display = "none";
+  document.getElementById("myTopnav").style.display = "block";
+  document.getElementById("myHero-section").style.display = "grid";
+  document.getElementById("myFooter").style.display = "block";
+  document.querySelector('form[name="reserve"]').reset();
 }
 
 
