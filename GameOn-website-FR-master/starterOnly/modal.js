@@ -58,6 +58,8 @@ function closeConfirmation() {
   document.getElementById("myTopnav").style.display = "block";
   document.getElementById("myHero-section").style.display = "grid";
   document.getElementById("myFooter").style.display = "block";
+
+  return false; // Empêche le rechargement de la page
 }
 
 //Fermer les modal avec close
@@ -68,6 +70,13 @@ function closeForm() {
   document.getElementById("myHero-section").style.display = "grid";
   document.getElementById("myFooter").style.display = "block";
   document.querySelector('form[name="reserve"]').reset();
+
+  // Réafficher le page d'acceuil
+  document.getElementById("myTopnav").style.display = "block";
+  document.getElementById("myHero-section").style.display = "grid";
+  document.getElementById("myFooter").style.display = "block";
+
+  return false; // Empêche le rechargement de la page
 }
 
 

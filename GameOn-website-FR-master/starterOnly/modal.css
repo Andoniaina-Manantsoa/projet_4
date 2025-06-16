@@ -198,8 +198,11 @@ main {
 }
 
 #confirmationModal p {
+  width: 271px;
   font-size: 36px;
-  margin-top: 316px;
+  text-align: center;
+  margin-top: 280px;
+  font-weight: normal;
 }
 
 #confirmationModal .btn-submit {
@@ -219,7 +222,7 @@ main {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -229,24 +232,26 @@ main {
 @media screen and (max-width: 768px) {
   .content {
     width: 100%;
-    min-width: 375px;
     height: 100%;
     top: 70px;
   }
 }
 
 .modal-body {
-  padding: 15px 8%;
-  margin: 15px auto;
-}
-
-.modal-body p {
-  font-size: 14px;
-  padding-left: 0;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-body .btn-submit {
-  margin-top: 120px;
+  margin-top: 90px;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-body .btn-submit {
+    margin-top: 40px;
+  }
 }
 
 label {
@@ -297,12 +302,6 @@ input {
   font-size: 14px;
 }
 
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -417,6 +416,13 @@ input[data-error]::after {
   border: 0;
 }
 
+/* 
+input[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.4em;
+    color: red;
+} */
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -492,7 +498,8 @@ input[data-error]::after {
 }
 
 .hero-section {
-  min-height: 93vh;
+  height: 100%;
+  min-height: 657px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -508,6 +515,7 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
+  min-width: 424px;
 }
 
 .hero-content::after {
@@ -586,9 +594,14 @@ footer {
     background: #fff;
     color: #000;
     padding: 0;
-    margin: 0;
-    width: 100%;
-    min-width: 354px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
   }
 
   .hero-content::after {
@@ -600,22 +613,18 @@ footer {
   }
 
   .hero-headline {
-    font-size: 38px;
+    font-size: 4.5rem;
     white-space: normal;
-    margin-top: 20px;
   }
 
   .hero-text {
     width: unset;
-    font-size: 12px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    font-size: 1.5rem;
   }
 
   .hero-img img {
     border-radius: 10px;
-    height: 100%;
-    min-height: 329px;
+    margin-top: 40px;
   }
 
   .hero-section>.btn-signup {
