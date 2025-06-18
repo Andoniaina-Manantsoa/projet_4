@@ -374,6 +374,13 @@ input {
   top: 19%;
 }
 
+small {
+  color: #f00;
+  font-size: 16px;
+  font-weight: none;
+  display: none;
+}
+
 .close {
   position: absolute;
   right: 15px;

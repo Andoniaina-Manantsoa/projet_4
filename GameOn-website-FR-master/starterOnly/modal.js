@@ -11,6 +11,12 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+let errors = document.querySelectorAll('.text-error');
+
+// Etape 2 - Cacher l'erreur
+errors.forEach(function (error) {
+  error.style.display = "none";
+});
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -26,28 +32,113 @@ function launchModal() {
   document.getElementById("formModal").style.display = "block";
 }
 
+// Récupération et vérifier les champs à valider
 function validate() {
-  // Récupération des champs à valider
-  const first = document.getElementById("first").value.trim();
-  const last = document.getElementById("last").value.trim();
-  const email = document.getElementById("email").value.trim();
+
+  // Vérification Prénom
+  const first = document.getElementById("first");
+  const firstError = first.parentElement.querySelector('.text-error');
+  first.addEventListener('input', () => {
+    if (first.value.trim().length < 2) {
+      firstError.style.display = "inline";
+    } else {
+      firstError.style.display = "none";
+    }
+  });
+
+  // Vérification Nom
+  const last = document.getElementById("last");
+  const lastError = last.parentElement.querySelector('.text-error');
+  last.addEventListener('input', () => {
+    if (last.value.trim().length < 2) {
+      lastError.style.display = "inline";
+    } else {
+      lastError.style.display = "none";
+    }
+  })
+
+  // Vérification email
+  const email = document.getElementById("email");
+  const emailError = email.parentElement.querySelector('.text-error');
+  let emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  email.addEventListener('input', () => {
+    if (!emailPattern.test(email.value.trim())) {
+      // Afficher le message d'erreur
+      emailError.style.display = "inline";
+    }
+    else {
+      // Cacher le message d'erreur
+      emailError.style.display = "none";
+    }
+  })
+
+  // Valider date de naissance
   const birthdate = document.getElementById("birthdate").value;
-  const quantity = document.getElementById("quantity").value;
-  const locationChecked = document.querySelector('input[name="location"]:checked');
-  const termsAccepted = document.getElementById("checkbox1").checked;
+  const birthdateError = birthdate.parentElement.querySelector('.text-error');
+  birthdate.addEventListener('input', () => {
+    if (!birthdate.value.trim()) {
+      // Afficher le message d'erreur
+      birthdateError.style.display = "inline";
+    }
+    else {
+      // Cacher le message d'erreur
+      birthdateError.style.display = "none";
+    }
+  })
 
-  // Vérification simple
-  if (first.length < 2 || last.length < 2 || email === "" || !birthdate || quantity === "" || !locationChecked || !termsAccepted) {
-    alert("Veuillez remplir tous les champs obligatoires.");
-    return false; // Empêche l'envoi
-  }
+  //Valider la quantité
+  const quantity = document.getElementById("quantity");
+  const quantityError = quantity.parentElement.querySelector('.text-error');
+  quantity.addEventListener('input', () => {
+    if (!quantity.value.trim()) {
+      // Afficher le message d'erreur
+      quantityError.style.display = "inline";
+    }
+    else {
+      // Cacher le message d'erreur
+      quantityError.style.display = "none";
+    }
+  })
 
-  // Masquer le formulaire et afficher le message
+  //Validé la localisation
+  const locationRadios = document.querySelectorAll('input[name="location"]');
+  locationRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      const checked = document.querySelector('input[name="location"]:checked');
+      const locationError = radio.closest('.form-group').querySelector('.text-error');
+      if (!checked) {
+        locationError.style.display = "inline";
+      } else {
+        locationError.style.display = "none";
+      }
+    });
+  });
+
+  //Validation checkbox
+  const checkbox1 = document.getElementById("checkbox1");
+  const checkbox1Error = checkbox1.parentElement.querySelector('.text-error');
+  checkbox1.addEventListener('input', () => {
+    if (!checkbox1.checked) {
+      // Afficher le message d'erreur
+      checkbox1Error.style.display = "inline";
+    }
+    else {
+      // Cacher le message d'erreur
+      checkbox1Error.style.display = "none";
+    }
+  })
+}
+
+/*if (!isValid) {
+  document.getElementById("formModal").style.display = "block";
+  event.preventDefault(); // Empêche l'envoi du formulaire
+} else {
+  // Masquer le formulaire et afficher la confirmation
   document.getElementById("formModal").style.display = "none";
   document.getElementById("confirmationModal").style.display = "block";
-
-  return false; // Empêche le rechargement de la page
+  event.preventDefault(); // Empêche de recharger la page
 }
+}*/
 
 // Fermer le message de confirmation
 function closeConfirmation() {
@@ -58,8 +149,6 @@ function closeConfirmation() {
   document.getElementById("myTopnav").style.display = "block";
   document.getElementById("myHero-section").style.display = "grid";
   document.getElementById("myFooter").style.display = "block";
-
-  return false; // Empêche le rechargement de la page
 }
 
 //Fermer les modal avec close
