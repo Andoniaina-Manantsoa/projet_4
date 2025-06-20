@@ -36,10 +36,8 @@ function launchModal() {
 document.getElementById("first").addEventListener("input", validateFirst);
 document.getElementById("last").addEventListener("input", validateLast);
 document.getElementById("email").addEventListener("input", validateEmail);
-document.getElementById("brirthdate").addEventListener("input", validateBirthdate);
+document.getElementById("birthdate").addEventListener("input", validateBirthdate);
 document.getElementById("quantity").addEventListener("input", validateQuantity);
-document.getElementById("location").addEventListener("input", validateLocation);
-document.getElementById("checkbox1").addEventListener("input", validatecheckbox1);
 
 // Récupération et vérifier les champs à valider
 // Vérification Prénom
@@ -84,7 +82,7 @@ function validateEmail() {
 
 // Valider date de naissance
 function validateBirthdate() {
-  const birthdate = document.getElementById("birthdate").value;
+  const birthdate = document.getElementById("birthdate");
   const birthdateError = birthdate.parentElement.querySelector('.text-error');
   if (!birthdate.value.trim()) {
     // Afficher le message d'erreur
@@ -102,7 +100,7 @@ function validateBirthdate() {
 function validateQuantity() {
   const quantity = document.getElementById("quantity");
   const quantityError = quantity.parentElement.querySelector('.text-error');
-  if (!quantity.value.trim()) {
+  if (!quantity) {
     // Afficher le message d'erreur
     quantityError.style.display = "inline";
     return false;
@@ -114,11 +112,11 @@ function validateQuantity() {
   }
 }
 
-//Validé la localisation
+//Valider la localisation
 function validateLocation() {
-  const selectedLocation = document.querySelectorAll('input[name="location"]:checked');
-  const locationError = document.getElementsByClassName('.text-error');
-  if (!selectedLocation) {
+  const selectLocation = document.querySelector('input[name="location"]:checked');
+  const locationError = document.getElementById('location-error');
+  if (!selectLocation) {
     locationError.style.display = "inline";
     return false
   } else {
@@ -130,7 +128,7 @@ function validateLocation() {
 //Validation checkbox
 function validatecheckbox1() {
   const selectcheckbox1 = document.getElementById("checkbox1");
-  const checkbox1Error = document.getElementsByClassName('.text-error');
+  const checkbox1Error = document.getElementById('checkbox1-error');
   if (!selectcheckbox1.checked) {
     // Afficher le message d'erreur
     checkbox1Error.style.display = "inline";
@@ -187,8 +185,7 @@ function closeForm() {
   document.getElementById("myTopnav").style.display = "block";
   document.getElementById("myHero-section").style.display = "grid";
   document.getElementById("myFooter").style.display = "block";
-
-  return false; // Empêche le rechargement de la page
+  // Empêche le rechargement de la page
 }
 
 

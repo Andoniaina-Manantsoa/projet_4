@@ -54,7 +54,7 @@
       <div class="content">
         <span class="close" onclick="closeForm()"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+          <form name="reserve">
             <div class="formData">
               <label>Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" /><br>
@@ -106,7 +106,7 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
-              <span class="text-error">Veuillez indiqué votre localisation</span>
+              <span class="text-error" id="location-error">Veuillez indiqué votre localisation</span>
             </div>
 
             <div class="formData">
@@ -114,6 +114,8 @@
               <label class="checkbox2-label" for="checkbox1" required>
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
+                <span class="text-error" id="checkbox1-error">Vous devez vérifier que vous acceptez les termes et
+                  conditions.</span>
               </label>
               <br>
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
@@ -122,9 +124,8 @@
                 Je souhaite être prévenu des prochains évènements.
               </label>
               <br>
-              <span class="text-error">Vous devez vérifier que vous acceptez les termes et conditions.</span>
             </div>
-            <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+            <input class="btn-submit" type="button" class="button" onclick="return validate()" value="C'est parti" />
           </form>
         </div>
       </div>
