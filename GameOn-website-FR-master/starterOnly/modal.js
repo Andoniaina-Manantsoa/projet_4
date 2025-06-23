@@ -100,8 +100,7 @@ function validateBirthdate() {
 function validateQuantity() {
   const quantity = document.getElementById("quantity");
   const quantityError = quantity.parentElement.querySelector('.text-error');
-  if (!quantity) {
-    // Afficher le message d'erreur
+  if (quantity.value < 0 || quantity.value > 99 || quantity.value === "") {
     quantityError.style.display = "inline";
     return false;
   }
@@ -154,12 +153,14 @@ function validate() {
   return valid; // Si false, le submit est bloqué
 }
 
-// Masquer le formulaire et afficher la confirmation
-document.getElementById("myTopnav").style.display = "none";
-document.getElementById("myHero-section").style.display = "none";
-document.getElementById("myFooter").style.display = "none";
-document.getElementById("formModal").style.display = "none";
-document.getElementById("confirmationModal").style.display = "block";
+function submitForm() {
+  if (validate()) {
+    // Masquer le formulaire
+    document.getElementById("formModal").style.display = "none";
+    // Afficher le modal de confirmation
+    document.getElementById("confirmationModal").style.display = "block";
+  }
+}
 
 // Fermer le message de confirmation
 function closeConfirmation() {
