@@ -20,6 +20,7 @@ body {
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1240px;
+  min-width: 375px;
   height: 100%;
   margin: 0 auto;
 }
@@ -87,7 +88,6 @@ img {
   .fa-bars {
     color: #ff0000;
     float: right;
-    margin-top: 25px;
   }
 
   .header-logo {
@@ -97,7 +97,8 @@ img {
   }
 
   .header-logo img {
-    width: 150px;
+    width: 100%;
+    min-width: 150px;
     height: auto;
   }
 }
@@ -129,6 +130,15 @@ img {
     float: right;
     display: block;
     margin-top: -15px;
+  }
+
+  .fa-bars {
+    margin-top: 25px;
+  }
+
+  .header-logo img {
+    width: 100%;
+    max-width: 150px;
   }
 }
 
@@ -243,13 +253,9 @@ main {
   align-items: center;
 }
 
-/*.modal-body .btn-submit {
-  margin-top: 90px;
-}*/
-
 @media screen and (max-width: 768px) {
   .modal-body .btn-submit {
-    margin-top: 40px;
+    margin-top: 15px;
   }
 }
 
@@ -416,7 +422,7 @@ input {
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
-  padding: 12px 70px;
+  padding: 12px 80px;
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -521,7 +527,7 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
+  min-width: 375px;
 }
 
 .hero-content::after {
@@ -603,11 +609,11 @@ footer {
   }
 
   .hero-content h1 {
-    font-size: 40px;
+    font-size: 38px;
   }
 
   .hero-content p {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero-content::after {
@@ -619,7 +625,7 @@ footer {
   }
 
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 40px;
     white-space: normal;
   }
 
@@ -631,6 +637,7 @@ footer {
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
+    margin-bottom: 60px;
   }
 
   .hero-section>.btn-signup {
@@ -655,6 +662,7 @@ footer {
     opacity: 1;
   }
 }
+
 
 /*masquer la formulaire et le message de confirmation lors de 
 l'actualisation du page d'acceuil*/

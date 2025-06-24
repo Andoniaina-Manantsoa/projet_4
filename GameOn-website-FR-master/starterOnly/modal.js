@@ -26,7 +26,7 @@ function launchModal() {
   modalbg.style.display = "block";
 
   //Masquer la page d'acceuil et afficher le formulaire
-  document.getElementById("myTopnav").style.display = "none";
+  document.getElementById("myTopnav").style.display = "block";
   document.getElementById("myHero-section").style.display = "none";
   document.getElementById("myFooter").style.display = "none";
   document.getElementById("formModal").style.display = "block";
