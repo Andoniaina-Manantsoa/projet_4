@@ -25,8 +25,19 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 
+  // Afficher l'en-tête avec la formulaire sur mobile
+  // Détecte la largeur d'écran
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    // Sur mobile : garder le topnav visible
+    document.getElementById("myTopnav").style.display = "block";
+  } else {
+    // Sur desktop : cacher le topnav
+    document.getElementById("myTopnav").style.display = "none";
+  }
+
   //Masquer la page d'acceuil et afficher le formulaire
-  document.getElementById("myTopnav").style.display = "block";
   document.getElementById("myHero-section").style.display = "none";
   document.getElementById("myFooter").style.display = "none";
   document.getElementById("formModal").style.display = "block";
@@ -169,7 +180,7 @@ function closeConfirmation() {
 
   // Réafficher le page d'acceuil
   document.getElementById("myTopnav").style.display = "block";
-  document.getElementById("myHero-section").style.display = "grid";
+  document.getElementById("myHero-section").style.display = "";
   document.getElementById("myFooter").style.display = "block";
 }
 
@@ -177,14 +188,11 @@ function closeConfirmation() {
 function closeForm() {
   document.getElementById("formModal").style.display = "none";
   document.getElementById("confirmationModal").style.display = "none";
-  document.getElementById("myTopnav").style.display = "block";
-  document.getElementById("myHero-section").style.display = "grid";
-  document.getElementById("myFooter").style.display = "block";
   document.querySelector('form[name="reserve"]').reset();
 
   // Réafficher le page d'acceuil
   document.getElementById("myTopnav").style.display = "block";
-  document.getElementById("myHero-section").style.display = "grid";
+  document.getElementById("myHero-section").style.display = "";
   document.getElementById("myFooter").style.display = "block";
   // Empêche le rechargement de la page
 }

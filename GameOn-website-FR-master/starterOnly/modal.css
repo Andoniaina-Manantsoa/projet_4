@@ -76,8 +76,15 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  .topnav {
+    position: relative;
+    z-index: 50;
+    display: block;
+  }
+
   .topnav a {
     display: none;
+    font-size: 15px;
   }
 
   .topnav a.icon {
@@ -208,8 +215,8 @@ main {
 }
 
 #confirmationModal p {
-  width: 300px;
-  font-size: 36px;
+  width: 280px;
+  font-size: 35px;
   text-align: center;
   margin-top: 300px;
   font-weight: normal;
@@ -239,10 +246,25 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+  #confirmationModal p {
+    margin-top: 200px;
+  }
+
+  .bground {
+    z-index: 10;
+    position: fixed;
+    top: 55px;
+    /* espace pour la topnav */
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    width: 100%;
+  }
+
   .content {
     width: 100%;
     height: 100%;
-    top: 70px;
+    max-height: 657px;
+    /*top: 20px;*/
   }
 }
 
@@ -278,13 +300,13 @@ input {
   padding: 8px;
   width: 100%;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 14px;
   height: 48px;
 }
 
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 15px;
   color: #e54858;
   display: block;
   margin-top: 7px;
@@ -301,10 +323,6 @@ input {
 
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
-}
-
-.formData label {
-  font-size: 14px;
 }
 
 .checkbox-label,
@@ -390,11 +408,18 @@ input {
   position: absolute;
   right: 15px;
   top: 15px;
-  width: 32px;
-  height: 32px;
+  width: 17px;
+  height: 17px;
   opacity: 1;
   cursor: pointer;
   transform: scale(0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .close {
+    width: 13px;
+    height: 13px;
+  }
 }
 
 .close:before,
@@ -507,6 +532,13 @@ input[data-error]::after {
 .text-label {
   font-weight: normal;
   font-size: 16px;
+  margin-bottom: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .text-label {
+    font-size: 13px;
+  }
 }
 
 .hero-section {
