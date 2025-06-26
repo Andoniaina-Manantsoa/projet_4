@@ -16,7 +16,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  /*background-image: url("background.png");*/
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1240px;
@@ -78,7 +78,7 @@ img {
 @media screen and (max-width: 768px) {
   .topnav {
     position: relative;
-    z-index: 50;
+    z-index: 20;
     display: block;
   }
 
@@ -230,7 +230,7 @@ main {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
-  height: 100%;
+  height: auto;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -251,7 +251,7 @@ main {
   }
 
   .bground {
-    z-index: 10;
+    z-index: 1;
     position: fixed;
     top: 55px;
     /* espace pour la topnav */
@@ -262,8 +262,7 @@ main {
 
   .content {
     width: 100%;
-    height: 100%;
-    max-height: 657px;
+    height: auto;
     /*top: 20px;*/
   }
 }
@@ -640,14 +639,6 @@ footer {
     padding: 0;
   }
 
-  .hero-content h1 {
-    font-size: 38px;
-  }
-
-  .hero-content p {
-    font-size: 12px;
-  }
-
   .hero-content::after {
     content: unset;
   }
@@ -657,13 +648,14 @@ footer {
   }
 
   .hero-headline {
-    font-size: 40px;
+    font-size: 38px;
     white-space: normal;
   }
 
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 12px;
+    margin-top: 30px;
   }
 
   .hero-img img {
