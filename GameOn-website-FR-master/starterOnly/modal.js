@@ -56,9 +56,11 @@ function validateFirst() {
   const first = document.getElementById("first");
   const firstError = first.parentElement.querySelector(".text-error");
   if (first.value.trim().length < 2) {
+    first.classList.add('input-error');
     firstError.style.display = "inline";
     return false;
   } else {
+    first.classList.remove('input-error');
     firstError.style.display = "none";
     return true;
   }
@@ -69,9 +71,11 @@ function validateLast() {
   const last = document.getElementById("last");
   const lastError = last.parentElement.querySelector(".text-error");
   if (last.value.trim().length < 2) {
+    last.classList.add('input-error');
     lastError.style.display = "inline";
     return false;
   } else {
+    last.classList.remove('input-error');
     lastError.style.display = "none";
     return true;
   }
@@ -83,9 +87,11 @@ function validateEmail() {
   const emailError = email.parentElement.querySelector(".text-error");
   const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
   if (!emailPattern.test(email.value.trim())) {
+    email.classList.add('input-error');
     emailError.style.display = "inline";
     return false;
   } else {
+    email.classList.remove('input-error');
     emailError.style.display = "none";
     return true;
   }
@@ -97,11 +103,13 @@ function validateBirthdate() {
   const birthdateError = birthdate.parentElement.querySelector('.text-error');
   if (!birthdate.value.trim()) {
     // Afficher le message d'erreur
+    birthdate.classList.add('input-error');
     birthdateError.style.display = "inline";
     return false;
   }
   else {
     // Cacher le message d'erreur
+    birthdate.classList.remove('input-error');
     birthdateError.style.display = "none";
     return true;
   }
@@ -112,11 +120,13 @@ function validateQuantity() {
   const quantity = document.getElementById("quantity");
   const quantityError = quantity.parentElement.querySelector('.text-error');
   if (quantity.value < 0 || quantity.value > 99 || quantity.value === "") {
+    quantity.classList.add('input-error');
     quantityError.style.display = "inline";
     return false;
   }
   else {
     // Cacher le message d'erreur
+    quantity.classList.remove('input-error');
     quantityError.style.display = "none";
     return true;
   }
