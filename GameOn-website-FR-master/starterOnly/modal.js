@@ -1,3 +1,11 @@
+function adjustBground() {
+  const topnav = document.getElementById("myTopnav");
+  const bground = document.querySelector(".bground");
+  const navHeight = topnav.offsetHeight;
+  bground.style.top = navHeight + "px";
+  bground.style.height = `calc(100% - ${navHeight}px)`;
+}
+
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -5,6 +13,7 @@ function editNav() {
   } else {
     x.className = "topnav";
   }
+  adjustBground(); // update bground position after toggling nav
 }
 
 // DOM Elements
