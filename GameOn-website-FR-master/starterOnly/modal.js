@@ -205,6 +205,7 @@ function close() {
   document.getElementById("myFooter").style.display = "block";
 }
 document.getElementById("closeConfirmation").addEventListener("click", close);
+document.querySelector("#confirmationModal .btn-submit").addEventListener("click", close);
 
 
 
