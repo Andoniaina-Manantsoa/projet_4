@@ -9,6 +9,11 @@ const confirmation = document.querySelector("#confirmation");
 
 const reserveForm = document.querySelector("form[name='reserve']");
 
+const modalbg = document.querySelector(".bground");
+const modalBtn = document.querySelectorAll(".modal-btn");
+const formData = document.querySelectorAll(".formData");
+let errors = document.querySelectorAll('.text-error');
+
 closeConfirmation.addEventListener("click", closeModal);
 
 // launch modal form
@@ -67,7 +72,7 @@ function submitForm() {
 
 /**************************************************************************************/
 
-
+/*
 function adjustBground() {
   const topnav = document.getElementById("myTopnav");
   const bground = document.querySelector(".bground");
@@ -75,22 +80,16 @@ function adjustBground() {
   bground.style.top = navHeight + "px";
   bground.style.height = `calc(100% - ${navHeight}px)`;
 }
-
-function editNav() {
+*/
+/*function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
     x.className = "topnav";
   }
-  adjustBground(); // update bground position after toggling nav
-}
-
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-let errors = document.querySelectorAll('.text-error');
+  //adjustBground(); // update bground position after toggling nav
+}*/
 
 // Etape 2 - Cacher l'erreur
 errors.forEach(function (error) {
@@ -245,5 +244,14 @@ function closeConfirmation() {
 }
 */
 
+const menuButton = document.getElementById("menu-button");
+menuButton.addEventListener("click", toggleMenu);
+
+function toggleMenu() {
+  const mainNavbar = document.querySelector(".main-navbar");
+  mainNavbar.classList.toggle("responsive");
+  menuButton.classList.toggle("active");
+  mainNavbar.style.display = mainNavbar.style.display === "none" ? "block" : "none";
+}
 
 
