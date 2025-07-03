@@ -141,7 +141,7 @@ main {
 
 .confirmModal p {
   width: 280px;
-  font-size: 35px;
+  font-size: 30px;
   text-align: center;
   margin-top: 350px;
   font-weight: normal;
@@ -151,7 +151,7 @@ main {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
-  height: 100%;
+  height: auto;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -164,12 +164,11 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /*z-index: 10000;*/
-  /* supérieur au bground */
 }
 
 .confirmModal {
   height: 100%;
+  max-height: 850px;
 }
 
 .modal-body {
@@ -180,7 +179,7 @@ main {
 }
 
 label {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
@@ -194,7 +193,6 @@ input {
 
 .text-control {
   margin: 0;
-  padding: 8px;
   width: 100%;
   border-radius: 8px;
   font-size: 14px;
@@ -424,7 +422,7 @@ input {
 .text-label {
   font-weight: normal;
   font-size: 16px;
-  margin-bottom: 4px;
+  /*margin-bottom: 4px;*/
 }
 
 .hero-section {
@@ -620,10 +618,6 @@ l'actualisation du page d'acceuil*/
 
   .text-label {
     font-size: 13px;
-  }
-
-  .confirmModal p {
-    margin-top: 350px;
   }
 
   .bground {
