@@ -1,8 +1,8 @@
-# Marathon National de Jeux Vidéos - Event Registration
+# GameOn - Marathon National de Jeux Vidéos - Event Registration
 
 ## 🚀 Live Demo
 
-En ligne: [https://aladin002dz.github.io/projet_4/](https://aladin002dz.github.io/projet_4/)
+En ligne: [https://aladin002dz.github.io/projet_4/](https://aladin002dz.github.io/projet_4/)  
 En local: lancer le fichier `index.html` dans le navigateur
 
 ## 📁 Structure du projet
