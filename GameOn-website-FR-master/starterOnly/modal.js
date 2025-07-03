@@ -17,9 +17,12 @@ function editNav() {
 }
 
 // DOM Elements
-const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
+const span = document.getElementsByClassName("close")[0];
+const topnav = document.getElementById("myTopnav");
+const heroSection = document.getElementById("myHero-section");
+const footer = document.getElementById("myFooter");
+const formModal = document.getElementById("formModal");
 let errors = document.querySelectorAll('.text-error');
 
 // Etape 2 - Cacher l'erreur
@@ -27,65 +30,63 @@ errors.forEach(function (error) {
   error.style.display = "none";
 });
 
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// Lorsque l'utilisateur clique sur le bouton, ouvrez la fenêtre modale
+modalBtn.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    formModal.style.display = "block";
 
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
+    const isMobile = window.innerWidth <= 768;
+    topnav.style.display = isMobile ? "block" : "none";
 
-  // Afficher l'en-tête avec la formulaire sur mobile
-  // Détecte la largeur d'écran
-  const isMobile = window.innerWidth <= 768;
+    heroSection.style.display = "none";
+    footer.style.display = "none";
+  });
+});
 
-  if (isMobile) {
-    // Sur mobile : garder le topnav visible
-    document.getElementById("myTopnav").style.display = "block";
-  } else {
-    // Sur desktop : cacher le topnav
-    document.getElementById("myTopnav").style.display = "none";
-  }
+// Lorsque l'utilisateur clique sur <span> (x), fermez la fenêtre modale
+span.onclick = function () {
+  formModal.style.display = "none";
 
-  //Masquer la page d'acceuil et afficher le formulaire
-  document.getElementById("myHero-section").style.display = "none";
-  document.getElementById("myFooter").style.display = "none";
-  document.getElementById("formModal").style.display = "block";
+  // Réinitialiser le formulaire
+  const form = document.querySelector('form[name="reserve"]');
+  form.reset();
+
+  // Cacher les messages d'erreur et retirer les styles d'erreur
+  errors.forEach(function (error) {
+    error.style.display = "none";
+  });
+
+  // Retirer la classe 'input-error' de tous les champs
+  const inputs = form.querySelectorAll('input, select, textarea');
+  inputs.forEach(function (input) {
+    input.classList.remove('input-error');
+  });
+
+  // Restaurer les sections
+  topnav.style.display = "block";
+  heroSection.style.display = "";
+  footer.style.display = "block";
 }
 
 // Ajout des écouteurs une seule fois
-document.getElementById("first").addEventListener("input", validateFirst);
-document.getElementById("last").addEventListener("input", validateLast);
+document.getElementById("first").addEventListener("input", () => validateField("first"));
+document.getElementById("last").addEventListener("input", () => validateField("last"));
 document.getElementById("email").addEventListener("input", validateEmail);
 document.getElementById("birthdate").addEventListener("input", validateBirthdate);
 document.getElementById("quantity").addEventListener("input", validateQuantity);
 
 // Récupération et vérifier les champs à valider
-// Vérification Prénom
-function validateFirst() {
-  const first = document.getElementById("first");
-  const firstError = first.parentElement.querySelector(".text-error");
-  if (first.value.trim().length < 2) {
-    first.classList.add('input-error');
-    firstError.style.display = "inline";
+// Vérification Prénom et nom
+function validateField(fieldId) {
+  const field = document.getElementById(fieldId);
+  const fieldError = field.parentElement.querySelector(".text-error");
+  if (field.value.trim().length < 2) {
+    field.classList.add('input-error');
+    fieldError.style.display = "inline";
     return false;
   } else {
-    first.classList.remove('input-error');
-    firstError.style.display = "none";
-    return true;
-  }
-}
-
-// Vérifier nom
-function validateLast() {
-  const last = document.getElementById("last");
-  const lastError = last.parentElement.querySelector(".text-error");
-  if (last.value.trim().length < 2) {
-    last.classList.add('input-error');
-    lastError.style.display = "inline";
-    return false;
-  } else {
-    last.classList.remove('input-error');
-    lastError.style.display = "none";
+    field.classList.remove('input-error');
+    fieldError.style.display = "none";
     return true;
   }
 }
@@ -173,8 +174,8 @@ function validatecheckbox1() {
 // Validation au submit
 function validate() {
   let valid = true;
-  if (!validateFirst()) valid = false;
-  if (!validateLast()) valid = false;
+  if (!validateField("first")) valid = false;
+  if (!validateField("last")) valid = false;
   if (!validateEmail()) valid = false;
   if (!validateBirthdate()) valid = false;
   if (!validateQuantity()) valid = false;
@@ -193,8 +194,9 @@ function submitForm() {
 }
 
 // Fermer le message de confirmation
-function closeConfirmation() {
+function close() {
   document.getElementById("confirmationModal").style.display = "none";
+  document.getElementById("formModal").style.display = "none";
   document.querySelector('form[name="reserve"]').reset(); // Réinitialise le formulaire
 
   // Réafficher le page d'acceuil
@@ -202,19 +204,7 @@ function closeConfirmation() {
   document.getElementById("myHero-section").style.display = "";
   document.getElementById("myFooter").style.display = "block";
 }
-
-//Fermer les modal avec close
-function closeForm() {
-  document.getElementById("formModal").style.display = "none";
-  document.getElementById("confirmationModal").style.display = "none";
-  document.querySelector('form[name="reserve"]').reset();
-
-  // Réafficher le page d'acceuil
-  document.getElementById("myTopnav").style.display = "block";
-  document.getElementById("myHero-section").style.display = "";
-  document.getElementById("myFooter").style.display = "block";
-  // Empêche le rechargement de la page
-}
+document.getElementById("closeConfirmation").addEventListener("click", close);
 
 
 
