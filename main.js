@@ -1,3 +1,47 @@
+/* Prise en charge de la modal *********************************************************/
+
+const closeModalIcon = document.getElementById("closeModal");
+closeModalIcon.addEventListener("click", closeModal);
+
+// launch modal form
+function launchModal() {
+  modalbg.style.display = "block";
+
+  // Afficher l'en-tête avec la formulaire sur mobile
+  // Détecte la largeur d'écran
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    // Sur mobile : garder le topnav visible
+    document.getElementById("myTopnav").style.display = "block";
+  } else {
+    // Sur desktop : cacher le topnav
+    document.getElementById("myTopnav").style.display = "none";
+  }
+
+  //Masquer la page d'acceuil et afficher le formulaire
+  document.getElementById("myHero-section").style.display = "none";
+  document.getElementById("myFooter").style.display = "none";
+  document.getElementById("formModal").style.display = "block";
+}
+
+//Fermer les modal avec close
+function closeModal() {
+  document.getElementById("formModal").style.display = "none";
+  document.getElementById("confirmationModal").style.display = "none";
+  document.querySelector('form[name="reserve"]').reset();
+
+  // Réafficher le page d'acceuil
+  document.getElementById("myTopnav").style.display = "block";
+  document.getElementById("myHero-section").style.display = "";
+  document.getElementById("myFooter").style.display = "block";
+  // Empêche le rechargement de la page
+}
+
+/**************************************************************************************/
+
+
+
 function adjustBground() {
   const topnav = document.getElementById("myTopnav");
   const bground = document.querySelector(".bground");
@@ -30,27 +74,6 @@ errors.forEach(function (error) {
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
-
-  // Afficher l'en-tête avec la formulaire sur mobile
-  // Détecte la largeur d'écran
-  const isMobile = window.innerWidth <= 768;
-
-  if (isMobile) {
-    // Sur mobile : garder le topnav visible
-    document.getElementById("myTopnav").style.display = "block";
-  } else {
-    // Sur desktop : cacher le topnav
-    document.getElementById("myTopnav").style.display = "none";
-  }
-
-  //Masquer la page d'acceuil et afficher le formulaire
-  document.getElementById("myHero-section").style.display = "none";
-  document.getElementById("myFooter").style.display = "none";
-  document.getElementById("formModal").style.display = "block";
-}
 
 // Ajout des écouteurs une seule fois
 document.getElementById("first").addEventListener("input", validateFirst);
@@ -203,18 +226,6 @@ function closeConfirmation() {
   document.getElementById("myFooter").style.display = "block";
 }
 
-//Fermer les modal avec close
-function closeForm() {
-  document.getElementById("formModal").style.display = "none";
-  document.getElementById("confirmationModal").style.display = "none";
-  document.querySelector('form[name="reserve"]').reset();
-
-  // Réafficher le page d'acceuil
-  document.getElementById("myTopnav").style.display = "block";
-  document.getElementById("myHero-section").style.display = "";
-  document.getElementById("myFooter").style.display = "block";
-  // Empêche le rechargement de la page
-}
 
 
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <title>Reservation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="modal.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
 </head>
@@ -13,7 +13,7 @@
 <body>
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo" src="logo.png" width="auto" height="auto" />
+      <img alt="logo" src="./assets/images/logo.png" width="auto" height="auto" />
     </div>
 
     <div class="main-navbar">
@@ -43,7 +43,7 @@
         </button>
       </div>
       <div class="hero-img">
-        <img src="./bg_img.jpg" alt="img" />
+        <img src="./assets/images/bg_img.jpg" alt="img" />
       </div>
       <button class="btn-signup modal-btn">
         je m'inscris
@@ -52,7 +52,7 @@
 
     <div class="bground" id="formModal">
       <div class="content">
-        <span class="close" onclick="closeForm()"></span>
+        <span class="close" id="closeModal"></span>
         <div class="modal-body">
           <form name="reserve">
             <div class="formData">
@@ -136,7 +136,7 @@
 
     <div class="bground" id="confirmationModal">
       <div class="content confirmModal">
-        <span class="close" onclick="closeForm()"></span>
+        <span class="close" id="closeModal"></span>
         <p>Merci pour votre inscription</p>
         <input class="btn-submit" type="submit" class="button" value="Fermer" onclick="closeConfirmation()" />
       </div>
@@ -148,7 +148,7 @@
       Copyright 2014 - 2022, GameOn Inc.
     </p>
   </footer>
-  <script src="modal.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
