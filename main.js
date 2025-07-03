@@ -3,11 +3,21 @@
 const closeModalIcon = document.getElementById("closeModal");
 closeModalIcon.addEventListener("click", closeModal);
 
+const modal = document.querySelector("#modal");
+const form = document.querySelector("form[name='reserve']");
+const confirmation = document.querySelector("#confirmation");
+
+const reserveForm = document.querySelector("form[name='reserve']");
+
+closeConfirmation.addEventListener("click", closeModal);
+
 // launch modal form
 function launchModal() {
-  modalbg.style.display = "block";
+  modal.style.display = "block";
+  form.style.display = "block";
+  //modalbg.style.display = "block";
 
-  // Afficher l'en-tête avec la formulaire sur mobile
+  /*// Afficher l'en-tête avec la formulaire sur mobile
   // Détecte la largeur d'écran
   const isMobile = window.innerWidth <= 768;
 
@@ -22,24 +32,40 @@ function launchModal() {
   //Masquer la page d'acceuil et afficher le formulaire
   document.getElementById("myHero-section").style.display = "none";
   document.getElementById("myFooter").style.display = "none";
-  document.getElementById("formModal").style.display = "block";
+  document.getElementById("formModal").style.display = "block";*/
 }
 
 //Fermer les modal avec close
 function closeModal() {
-  document.getElementById("formModal").style.display = "none";
-  document.getElementById("confirmationModal").style.display = "none";
-  document.querySelector('form[name="reserve"]').reset();
+  modal.style.display = "none";
+  confirmation.style.display = "none";
+  //document.getElementById("formModal").style.display = "none";
 
-  // Réafficher le page d'acceuil
-  document.getElementById("myTopnav").style.display = "block";
-  document.getElementById("myHero-section").style.display = "";
-  document.getElementById("myFooter").style.display = "block";
-  // Empêche le rechargement de la page
+  /* document.getElementById("formModal").style.display = "none";
+   document.getElementById("confirmationModal").style.display = "none";
+   document.querySelector('form[name="reserve"]').reset();
+ 
+   // Réafficher le page d'acceuil
+   document.getElementById("myTopnav").style.display = "block";
+   document.getElementById("myHero-section").style.display = "";
+   document.getElementById("myFooter").style.display = "block";
+   // Empêche le rechargement de la page
+   */
+}
+
+
+function submitForm() {
+  if (validate()) {
+    // Masquer le formulaire
+    form.style.display = "none";
+    // Réinitialiser le formulaire
+    reserveForm.reset();
+    // Afficher le modal de confirmation
+    confirmation.style.display = "block";
+  }
 }
 
 /**************************************************************************************/
-
 
 
 function adjustBground() {
@@ -206,15 +232,7 @@ function validate() {
   return valid; // Si false, le submit est bloqué
 }
 
-function submitForm() {
-  if (validate()) {
-    // Masquer le formulaire
-    document.getElementById("formModal").style.display = "none";
-    // Afficher le modal de confirmation
-    document.getElementById("confirmationModal").style.display = "block";
-  }
-}
-
+/*
 // Fermer le message de confirmation
 function closeConfirmation() {
   document.getElementById("confirmationModal").style.display = "none";
@@ -225,7 +243,7 @@ function closeConfirmation() {
   document.getElementById("myHero-section").style.display = "";
   document.getElementById("myFooter").style.display = "block";
 }
-
+*/
 
 
 

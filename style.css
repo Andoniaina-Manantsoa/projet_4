@@ -80,7 +80,6 @@ img {
   display: none;
 }
 
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -136,15 +135,26 @@ main {
 
 .bground {
   display: none;
-  /*position: fixed;
-  z-index: 9999;*/
+  position: fixed;
+  z-index: 9999;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
+.confirmationMessage {
+  height: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
 #confirmationModal p {
   width: 280px;
   font-size: 35px;
@@ -156,8 +166,9 @@ main {
 #confirmationModal .btn-submit {
   margin-bottom: 30px;
 }
-
+*/
 .content {
+  position: relative;
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -166,24 +177,19 @@ main {
   animation-duration: var(--modal-duration);
   background: #232323;
   border-radius: 10px;
-  overflow: hidden;
-  position: relative;
   color: #fff;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /*z-index: 10000;*/
-  /* supérieur au bground */
 }
 
+/*
 .confirmModal {
   height: 100%;
   max-height: 850px;
 }
-
-
 
 .modal-body {
   flex-grow: 1;
@@ -191,7 +197,7 @@ main {
   justify-content: center;
   align-items: center;
 }
-
+*/
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -554,8 +560,33 @@ input[data-error]::after {
 
 /*masquer la formulaire et le message de confirmation lors de 
 l'actualisation du page d'acceuil*/
-#formModal,
-#confirmationModal {
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+
+/*#formModal,*/
+#confirmation {
   display: none;
 }
 
@@ -607,7 +638,6 @@ l'actualisation du page d'acceuil*/
     text-align: center;
   }
 }
-
 
 @media screen and (max-width: 768px) {
   #confirmationModal p {
