@@ -198,6 +198,7 @@ function validate() {
 document.getElementById("closeConfirmation").addEventListener("click", close);
 document.querySelector("#confirmationModal .btn-submit").addEventListener("click", close);*/
 
+
 /* Prise en charge de la modal *********************************************************/
 
 const closeModalIcon = document.getElementById("closeModal");
