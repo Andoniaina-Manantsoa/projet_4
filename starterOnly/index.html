@@ -4,32 +4,29 @@
 <head>
   <meta charset="utf-8" />
   <title>Reservation</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
 </head>
 
 <body>
   <header class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo" src="./assets/images/logo.png" width="auto" height="auto" />
+      <img alt="logo" src="./assets/images/logo.png" width="auto" height="auto">
     </div>
 
-    <button class="icon" id="menu-button">
-      <i class="fa-solid fa-bars"></i>
-      <i class="fa-solid fa-xmark"></i>
-    </button>
     <div class="main-navbar">
       <a href="#" class="active"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
     </div>
+    <button class="icon" id="menu-button">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </header>
 
   <main>
@@ -54,6 +51,7 @@
         je m'inscris
       </button>
     </div>
+
     <!-- The Modal -->
     <div id="modal" class="bground">
       <div class="content">
@@ -134,11 +132,12 @@
           </div>
           <input class="btn-submit" type="button" class="button" onclick="submitForm()" value="C'est parti" />
         </form>
+
         <div id="confirmation">
           <div class="confirmationMessage">
             <p>Merci pour votre inscription</p>
           </div>
-          <button class="btn-submit" class="button" id="closeConfirmation">Fermer</button>
+          <button class="btn-submit" class="button" id="closeConfirmation" onclick="submitForm()">Fermer</button>
         </div>
       </div>
     </div>
