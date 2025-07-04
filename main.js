@@ -14,7 +14,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 let errors = document.querySelectorAll('.text-error');
 
-closeConfirmation.addEventListener("click", closeModal);
+//closeConfirmation.addEventListener("click", closeModal);
 
 // launch modal form
 function launchModal() {
