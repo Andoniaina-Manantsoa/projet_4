@@ -49,6 +49,11 @@ img {
   float: left;
 }
 
+.main-navbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .topnav a {
   /*float: left;*/
@@ -56,7 +61,7 @@ img {
   color: #000000;
   text-align: center;
   padding: 12px 12px;
-  margin: 5px;
+  /*margin: 5px;*/
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
@@ -151,7 +156,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.9);
   /* Black w/ opacity */
 }
 
@@ -677,20 +682,40 @@ input[data-error]::after {
     height: auto;
   }
 
+  .fa-xmark {
+    display: none !important;
+  }
+
+  .fa-bars {
+    display: block;
+  }
+
+  .active .fa-xmark {
+    display: block !important;
+  }
+
+  .active .fa-bars {
+    display: none;
+  }
+
   .main-navbar {
     display: none;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
     position: absolute;
-    top: 50px;
+    top: 60px;
     right: 0;
     width: 300px;
     z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .main-navbar.active {
+    display: block;
   }
 
   .main-navbar a {

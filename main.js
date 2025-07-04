@@ -249,9 +249,11 @@ menuButton.addEventListener("click", toggleMenu);
 
 function toggleMenu() {
   const mainNavbar = document.querySelector(".main-navbar");
-  mainNavbar.classList.toggle("responsive");
+  //mainNavbar.classList.toggle("responsive");
   menuButton.classList.toggle("active");
-  mainNavbar.style.display = mainNavbar.style.display === "none" ? "block" : "none";
+  mainNavbar.classList.toggle("active");
+  //operateur ternaire pour gérer l'affichage du menu en mobile
+  //mainNavbar.style.display = mainNavbar.style.display === "none" ? "block" : "none";
 }
 
 
