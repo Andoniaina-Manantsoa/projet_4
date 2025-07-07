@@ -35,10 +35,7 @@ img {
 }
 
 .topnav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 30px;
+  margin: 40px;
 }
 
 .header-logo {
@@ -48,7 +45,7 @@ img {
 
 .main-navbar {
   display: flex;
-  align-items: center;
+  justify-content: right;
   gap: 5px;
 }
 
@@ -564,16 +561,29 @@ input {
 }
 
 @media screen and (max-width: 768px) {
+  .topnav a {
+    font-size: 15px;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
   .topnav .main-navbar {
     display: none;
-    font-size: 14px;
   }
 
   .topnav .icon {
     display: block;
     position: absolute;
-    right: 20px;
-    /* ajuste selon ton design */
+    right: 18px;
     margin: 0;
   }
 
@@ -586,12 +596,6 @@ input {
     position: relative;
   }
 
-  /*.topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }*/
-
   .topnav.responsive .main-navbar {
     float: none;
     display: block;
@@ -599,7 +603,7 @@ input {
   }
 
   .header-logo {
-    margin-left: 0;
+    margin: 0;
   }
 
   .header-logo img {
@@ -619,8 +623,8 @@ input {
     top: 55px;
     /* espace pour la topnav */
     height: calc(100% - 60px);
-    /*overflow-y: auto;*/
     width: 100%;
+    margin-top: 20px;
   }
 
   .modal-body .btn-submit {
@@ -638,10 +642,10 @@ input {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 60px;
+    top: 70px;
     right: 0;
-    width: 300px;
-    z-index: 1000;
+    width: 200px;
+    z-index: 1001;
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
@@ -650,22 +654,11 @@ input {
 
   .main-navbar.active {
     display: block;
-  }
-
-  .main-navbar a {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
+    z-index: 10002;
   }
 }
 
 @media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-
   .topnav a.icon {
     float: right;
     display: block;
