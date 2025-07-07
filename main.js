@@ -63,7 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
   confirmation.style.display = "none";
 
   // Réafficher la page d'accueil
-  document.getElementById("myHero-section").style.display = "block";
+  document.getElementById("myHero-section").style.display = "";
   document.getElementById("myFooter").style.display = "block";
   document.getElementById("myTopnav").style.display = "block";
 });
