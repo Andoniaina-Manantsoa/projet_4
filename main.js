@@ -54,10 +54,6 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // Affichage du page d'acceuil au rafraichissement
 window.addEventListener("DOMContentLoaded", () => {
   // Cacher la modal au chargement
-  const modal = document.getElementById("modal");
-  const form = document.querySelector("form[name='reserve']");
-  const confirmation = document.getElementById("confirmation");
-
   modal.style.display = "none";
   form.style.display = "block"; // Assure que le formulaire est prêt mais caché
   confirmation.style.display = "none";
@@ -65,7 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // Réafficher la page d'accueil
   document.getElementById("myHero-section").style.display = "";
   document.getElementById("myFooter").style.display = "block";
-  document.getElementById("myTopnav").style.display = "block";
+  topnav.style.display = "block";
 });
 
 // Etape 2 - Cacher l'erreur
@@ -210,28 +206,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Fermer le message de confirmation
-function close() {
-  document.getElementById("confirmation").style.display = "none";
-  modal.style.display = "none";
-  document.querySelector('form[name="reserve"]').reset(); // Réinitialise le formulaire
-
-  // Réafficher le page d'acceuil
-  topnav.style.display = "block";
-  heroSection.style.display = "";
-  document.getElementById("myFooter").style.display = "block";
-}
-
-const closeModalIcon = document.getElementById("closeModal");
-closeModalIcon.addEventListener("click", closeModal);
 //Fermer les modal avec close
 function closeModal() {
   modal.style.display = "none";
   confirmation.style.display = "none";
+
+  // Réafficher le page d'acceuil
   topnav.style.display = "block"
   heroSection.style.display = "";
   document.getElementById("myFooter").style.display = "block";
 }
+
+// Fermer le message de confirmation
+/*form.reset(); // Réinitialise le formulaire*/
+document.getElementById("closeModal").addEventListener("click", closeModal);
 
 
 

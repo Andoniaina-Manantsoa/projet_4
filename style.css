@@ -66,13 +66,6 @@ img {
   text-decoration: underline;
 }
 
-/*.topnav a.active {
-  background-color: #ff0000;
-  color: #000000;
-  border-radius: 15px;
-  text-decoration: underline;
-}*/
-
 .topnav .icon {
   display: none;
   margin: 0;
@@ -619,7 +612,7 @@ input {
   .bground {
     display: block;
     position: fixed;
-    z-index: 9999;
+    z-index: 1000;
     top: 55px;
     /* espace pour la topnav */
     height: calc(100% - 60px);
@@ -654,7 +647,7 @@ input {
 
   .main-navbar.active {
     display: block;
-    z-index: 10002;
+    z-index: 1001;
   }
 }
 
